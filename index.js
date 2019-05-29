@@ -1,5 +1,6 @@
 let bookNavToggle = false;
 let artNavToggle = false;
+let socialNavToggle = false;
 
 let bookCategories = [
   {
@@ -108,6 +109,71 @@ function displayArtNav() {
   }
 }
 
+/* Social Network Nav Display on Click */
+
+function displaySocialNav() {
+  if (socialNavToggle == false) {
+    clearData(document.querySelector("main"));
+    makeSocialIcons();
+    socialNavToggle = true;
+    document.querySelector("main").style.opacity = 1;
+    document.querySelector("#nav-social").style.color = "black";
+  } else {
+    document.querySelector("main").style.opacity = 0;
+    document.querySelector("#nav-social").style.color = "white";
+    setTimeout(() => clearData(document.querySelector("main")), 900);
+    socialNavToggle = false;
+  }
+
+  function makeSocialIcons() {
+    let socialDiv = document.createElement("div");
+    socialDiv.setAttribute("id", "renegade-reader-div");
+
+    let h2 = document.createElement("h2");
+    h2.innerText =
+      "Join the community of Renegade Readers on facebook for discussions, updates, and sneak-peaks!";
+
+    let h22 = document.createElement("h2");
+    h22.innerText = "You can also visit JN on twitter and instagram.";
+
+    let iconDiv = document.createElement("div");
+    iconDiv.setAttribute("id", "icon-div");
+    let facebookLink = document.createElement("a");
+    let twitterLink = document.createElement("a");
+    let instagramLink = document.createElement("a");
+    facebookLink.setAttribute(
+      "href",
+      "https://www.facebook.com/groups/jnchaneyreaders/"
+    );
+    facebookLink.setAttribute("target", "_blank");
+    twitterLink.setAttribute("href", "https://twitter.com/JNChaney");
+    twitterLink.setAttribute("target", "_blank");
+    instagramLink.setAttribute("href", "https://instagram.com/jn_chaney/");
+    instagramLink.setAttribute("target", "_blank");
+
+    let facebookIcon = document.createElement("i");
+    let twitterIcon = document.createElement("i");
+    let instagramIcon = document.createElement("i");
+    facebookIcon.classList = "fab fa-facebook";
+    twitterIcon.classList = "fab fa-twitter";
+    instagramIcon.classList = "fab fa-instagram";
+
+    facebookLink.appendChild(facebookIcon);
+    twitterLink.appendChild(twitterIcon);
+    instagramLink.appendChild(instagramIcon);
+
+    iconDiv.appendChild(facebookLink);
+    iconDiv.appendChild(twitterLink);
+    iconDiv.appendChild(instagramLink);
+
+    socialDiv.appendChild(h2);
+    socialDiv.appendChild(h22);
+    socialDiv.appendChild(iconDiv);
+
+    document.querySelector("main").appendChild(socialDiv);
+  }
+}
+
 /* Global Nav Display Element Constructor */
 
 function displayNav(caption, imgURI) {
@@ -135,9 +201,10 @@ function clearData(element) {
       }
     }
   }
-  
+
   bookNavToggle = false;
   artNavToggle = false;
+  socialNavToggle = false;
 
   document.querySelector("#nav-books").style.color = "white";
   document.querySelector("#nav-art").style.color = "white";
