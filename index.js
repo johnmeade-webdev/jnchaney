@@ -75,13 +75,16 @@ let charArt = [
 
 function displayBooksNav() {
   if (bookNavToggle == false) {
-    clearData(document.querySelector("main"));
-    for (let book in bookCategories) {
-      displayNav(bookCategories[book].title, bookCategories[book].img);
-    }
-    bookNavToggle = true;
-    document.querySelector("main").style.opacity = 1;
-    document.querySelector("#nav-books").style.color = "black";
+    document.querySelector("main").style.opacity = 0;
+    setTimeout(() => {
+      clearData(document.querySelector("main"));
+      for (let book in bookCategories) {
+        displayNav(bookCategories[book].title, bookCategories[book].img);
+      }
+      document.querySelector("main").style.opacity = 1;
+      bookNavToggle = true;
+      document.querySelector("#nav-books").style.color = "black";
+    }, 700);
   } else {
     document.querySelector("main").style.opacity = 0;
     document.querySelector("#nav-books").style.color = "white";
@@ -94,13 +97,16 @@ function displayBooksNav() {
 
 function displayArtNav() {
   if (artNavToggle == false) {
-    clearData(document.querySelector("main"));
-    for (let art in charArt) {
-      displayNav(charArt[art].caption, charArt[art].img);
-    }
-    artNavToggle = true;
-    document.querySelector("main").style.opacity = 1;
-    document.querySelector("#nav-art").style.color = "black";
+    document.querySelector("main").style.opacity = 0;
+    setTimeout(() => {
+      clearData(document.querySelector("main"));
+      for (let art in charArt) {
+        displayNav(charArt[art].caption, charArt[art].img);
+      }
+      document.querySelector("main").style.opacity = 1;
+      artNavToggle = true;
+      document.querySelector("#nav-art").style.color = "black";
+    }, 700);
   } else {
     document.querySelector("main").style.opacity = 0;
     document.querySelector("#nav-art").style.color = "white";
@@ -113,11 +119,14 @@ function displayArtNav() {
 
 function displaySocialNav() {
   if (socialNavToggle == false) {
-    clearData(document.querySelector("main"));
-    makeSocialIcons();
-    socialNavToggle = true;
-    document.querySelector("main").style.opacity = 1;
-    document.querySelector("#nav-social").style.color = "black";
+    document.querySelector("main").style.opacity = 0;
+    setTimeout(() => {
+      clearData(document.querySelector("main"));
+      makeSocialIcons();
+      document.querySelector("main").style.opacity = 1;
+      socialNavToggle = true;
+      document.querySelector("#nav-social").style.color = "black";
+    }, 700);
   } else {
     document.querySelector("main").style.opacity = 0;
     document.querySelector("#nav-social").style.color = "white";
