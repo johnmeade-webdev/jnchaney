@@ -106,7 +106,7 @@ main {
   justify-content: center;
   overflow: scroll;
   opacity: 0;
-  transition: opacity 1500ms;
+  transition: opacity 600ms;
 }
 
 main div {
@@ -128,7 +128,7 @@ main div img {
   width: 120px;
   box-shadow: 2px 2px 2px black;
   transition: box-shadow 300ms;
-  transition: opacity 600ms;
+  transition: opacity 300ms;
   opacity: 0.35;
 }
 

@@ -81,10 +81,10 @@ function displayBooksNav() {
       for (let book in bookCategories) {
         displayNav(bookCategories[book].title, bookCategories[book].img);
       }
-      document.querySelector("main").style.opacity = 1;
       bookNavToggle = true;
       document.querySelector("#nav-books").style.color = "black";
-    }, 700);
+      document.querySelector("main").style.opacity = 1;
+    }, 800);
   } else {
     document.querySelector("main").style.opacity = 0;
     document.querySelector("#nav-books").style.color = "white";
@@ -103,10 +103,10 @@ function displayArtNav() {
       for (let art in charArt) {
         displayNav(charArt[art].caption, charArt[art].img);
       }
-      document.querySelector("main").style.opacity = 1;
       artNavToggle = true;
       document.querySelector("#nav-art").style.color = "black";
-    }, 700);
+      document.querySelector("main").style.opacity = 1;
+    }, 800);
   } else {
     document.querySelector("main").style.opacity = 0;
     document.querySelector("#nav-art").style.color = "white";
@@ -123,10 +123,10 @@ function displaySocialNav() {
     setTimeout(() => {
       clearData(document.querySelector("main"));
       makeSocialIcons();
-      document.querySelector("main").style.opacity = 1;
       socialNavToggle = true;
       document.querySelector("#nav-social").style.color = "black";
-    }, 700);
+      document.querySelector("main").style.opacity = 1;
+    }, 800);
   } else {
     document.querySelector("main").style.opacity = 0;
     document.querySelector("#nav-social").style.color = "white";
