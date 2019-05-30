@@ -2,9 +2,11 @@ let bookNavToggle = false;
 let artNavToggle = false;
 let socialNavToggle = false;
 
+let mainContent = document.querySelector('#main-content-container');
+
 let bookCategories = [
   {
-    title: "The Last Reaper",
+    title: "The Last Reaper (Series)",
     img: "./imgs/navDisplay/reaper_books_display_200x200.jpg",
     quote: ""
   },
@@ -75,20 +77,21 @@ let charArt = [
 
 function displayBooksNav() {
   if (bookNavToggle == false) {
-    document.querySelector("main").style.opacity = 0;
+    mainContent.style.opacity = 0;
     setTimeout(() => {
-      clearData(document.querySelector("main"));
+      clearData(mainContent);
       for (let book in bookCategories) {
-        displayNav(bookCategories[book].title, bookCategories[book].img);
+        displayNav(bookCategories[book].title, bookCategories[book].img, "book");
       }
       bookNavToggle = true;
       document.querySelector("#nav-books").style.color = "black";
-      document.querySelector("main").style.opacity = 1;
+      document.querySelector("#nav-books").style.textShadow = "0px 0px 1px white";
+      mainContent.style.opacity = 1;
     }, 800);
   } else {
-    document.querySelector("main").style.opacity = 0;
+    mainContent.style.opacity = 0;
     document.querySelector("#nav-books").style.color = "white";
-    setTimeout(() => clearData(document.querySelector("main")), 900);
+    setTimeout(() => clearData(mainContent), 900);
     bookNavToggle = false;
   }
 }
@@ -97,20 +100,21 @@ function displayBooksNav() {
 
 function displayArtNav() {
   if (artNavToggle == false) {
-    document.querySelector("main").style.opacity = 0;
+    mainContent.style.opacity = 0;
     setTimeout(() => {
-      clearData(document.querySelector("main"));
+      clearData(mainContent);
       for (let art in charArt) {
-        displayNav(charArt[art].caption, charArt[art].img);
+        displayNav(charArt[art].caption, charArt[art].img, "art");
       }
       artNavToggle = true;
       document.querySelector("#nav-art").style.color = "black";
-      document.querySelector("main").style.opacity = 1;
+      document.querySelector("#nav-art").style.textShadow = "0px 0px 1px white";
+      mainContent.style.opacity = 1;
     }, 800);
   } else {
-    document.querySelector("main").style.opacity = 0;
+    mainContent.style.opacity = 0;
     document.querySelector("#nav-art").style.color = "white";
-    setTimeout(() => clearData(document.querySelector("main")), 900);
+    setTimeout(() => clearData(mainContent), 900);
     artNavToggle = false;
   }
 }
@@ -119,18 +123,19 @@ function displayArtNav() {
 
 function displaySocialNav() {
   if (socialNavToggle == false) {
-    document.querySelector("main").style.opacity = 0;
+    mainContent.style.opacity = 0;
     setTimeout(() => {
-      clearData(document.querySelector("main"));
+      clearData(mainContent);
       makeSocialIcons();
       socialNavToggle = true;
       document.querySelector("#nav-social").style.color = "black";
-      document.querySelector("main").style.opacity = 1;
+      document.querySelector("#nav-social").style.textShadow = "0px 0px 1px white";
+      mainContent.style.opacity = 1;
     }, 800);
   } else {
-    document.querySelector("main").style.opacity = 0;
+    mainContent.style.opacity = 0;
     document.querySelector("#nav-social").style.color = "white";
-    setTimeout(() => clearData(document.querySelector("main")), 900);
+    setTimeout(() => clearData(mainContent), 900);
     socialNavToggle = false;
   }
 
@@ -179,25 +184,33 @@ function displaySocialNav() {
     socialDiv.appendChild(h22);
     socialDiv.appendChild(iconDiv);
 
-    document.querySelector("main").appendChild(socialDiv);
+    mainContent.appendChild(socialDiv);
   }
 }
 
 /* Global Nav Display Element Constructor */
 
-function displayNav(caption, imgURI) {
+function displayNav(caption = "", imgURI, imgClass = "", divClass = "") {
   let container = document.createElement("div");
+  if(divClass != ''){
+    container.classList = divClass;
+  }
   let h2 = document.createElement("h2");
   let img = document.createElement("img");
 
-  h2.innerText = caption;
+  if (caption != "") {
+    h2.innerText = caption;
+  }
   img.setAttribute("src", imgURI);
+  if (imgClass != "") {
+    img.classList = imgClass;
+  }
   img.setAttribute("alt", caption);
 
   container.appendChild(h2);
   container.appendChild(img);
 
-  document.querySelector("main").appendChild(container);
+  mainContent.appendChild(container);
 }
 
 /* GLOBAL CLEAR FUNCTION FOR NAVIGATION DISPLAY */
@@ -216,9 +229,19 @@ function clearData(element) {
   socialNavToggle = false;
 
   document.querySelector("#nav-books").style.color = "white";
+  document.querySelector("#nav-books").style.textShadow = "0px 0px 1px black";
   document.querySelector("#nav-art").style.color = "white";
+  document.querySelector("#nav-art").style.textShadow = "0px 0px 1px black";
   document.querySelector("#nav-merch").style.color = "white";
+  document.querySelector("#nav-merch").style.textShadow = "0px 0px 1px black";
   document.querySelector("#nav-social").style.color = "white";
-  document.querySelector("#nav-collaborators").style.color = "white";
+  document.querySelector("#nav-social").style.textShadow = "0px 0px 1px black";
+  document.querySelector("#nav-about").style.color = "white";
+  document.querySelector("#nav-about").style.textShadow = "0px 0px 1px black";
   document.querySelector("#nav-contact").style.color = "white";
+  document.querySelector("#nav-contact").style.textShadow = "0px 0px 1px black";
+}
+
+function moveRight(){
+  window.scrollBy(270, 0);
 }

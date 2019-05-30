@@ -11,12 +11,16 @@
     <title>JN Chaney | Author</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500|Audiowide|Lato:300,700|Roboto:300&display=swap" rel="stylesheet">
     <link
-      href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100|Audiowide|Lato:300,700|Roboto:300&display=swap"
       rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="main2.css" />
+
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="index3.css" />
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -25,28 +29,29 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
+
     <div id="page-wrapper">
       <header>
         <h1>JN Chaney</h1>
         <nav>
           <ul>
-            <li onclick="displayBooksNav()" id="nav-books">books</li>
+            <li onclick="displayBooksNav()"" id="nav-books">books</li>
             <li onclick="displayArtNav()" id="nav-art">art</li>
-            <li id="nav-merch">merch</li>
+            <li onclick="" id="nav-merch">merch</li>
             <li onclick="displaySocialNav()" id="nav-social">social</li>
-            <li id="nav-collaborators">collaborators</li>
-            <li id="nav-contact">contact</li>
+            <li onclick="" id="nav-about">about</li>
+            <li onclick="" id="nav-contact">contact</li>
           </ul>
         </nav>
       </header>
 
       <main>
-        
+        <!-- <div id="move-left"><i class="fas fa-chevron-left"></i></div> -->
+        <div id="main-content-container">Main Content</div>
+        <!-- <div onclick="moveRight()" id="move-right"><i class="fas fa-chevron-right"></i></div> -->
       </main>
 
-      <footer>
-        <p>&copy;2019 Website by JM Webdev - Art by Rob Meridy</p>
-      </footer>
+      <footer>&copy;2019 JM WebDev - Art by Rob Meridy</footer>
     </div>
 
     <script src="index.js" async defer></script>
