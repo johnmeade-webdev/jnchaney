@@ -4,6 +4,9 @@ let socialNavToggle = false;
 
 let mainContent = document.querySelector('#main-content-container');
 
+let featureBook = [
+];
+
 let bookCategories = [
   {
     title: "The Last Reaper (Series)",
