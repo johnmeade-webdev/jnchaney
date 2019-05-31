@@ -106,17 +106,23 @@ if (promo.length != 0) {
     titleSpan.innerText = promo[0].title;
   } else {
     cyclePromo();
-    setInterval(cyclePromo, 15000);
+    setInterval(cyclePromo, 7000);
   }
 
   function cyclePromo() {
-    dateSpan.innerText = promo[cycleCount].date;
-    titleSpan.innerText = promo[cycleCount].title;
-    if (cycleCount == promo.length - 1) {
-      cycleCount = 0;
-    } else {
-      cycleCount++;
-    }
+    dateSpan.style.opacity = 0;
+    titleSpan.style.opacity = 0;
+    setTimeout(() => {
+      dateSpan.innerText = promo[cycleCount].date;
+      titleSpan.innerText = promo[cycleCount].title;
+      if (cycleCount == promo.length - 1) {
+        cycleCount = 0;
+      } else {
+        cycleCount++;
+      }
+      dateSpan.style.opacity = 1;
+      titleSpan.style.opacity = 1;
+    }, 600);
   }
 }
 
