@@ -2,10 +2,9 @@ let bookNavToggle = false;
 let artNavToggle = false;
 let socialNavToggle = false;
 
-let mainContent = document.querySelector('#main-content-container');
+let mainContent = document.querySelector("#main-content-container");
 
-let featureBook = [
-];
+let featureBook = [];
 
 let bookCategories = [
   {
@@ -76,6 +75,51 @@ let charArt = [
   }
 ];
 
+let promo = [
+  {
+    title: "Orion Protected",
+    date: "June 2, 2019",
+    img: "./promo/orion_protected.jpg"
+  },
+  {
+    title: "Warrior Queen",
+    date: "June 9, 2019",
+    img: "./promo/warrior_queen.jpg"
+  },
+  {
+    title: "Renegade Descent",
+    date: "June 16, 2019",
+    img: ""
+  }
+];
+
+/* Promotion Banner Display */
+
+if (promo.length != 0) {
+  let cycleCount = 0;
+  let endIndex = promo.length - 1;
+  document.querySelector("#promo-container").style.display = "flex";
+  let dateSpan = document.querySelector("#promo-pub-date");
+  let titleSpan = document.querySelector("#promo-title");
+  if (promo.length == 1) {
+    dateSpan.innerText = promo[0].date;
+    titleSpan.innerText = promo[0].title;
+  } else {
+    cyclePromo();
+    setInterval(cyclePromo, 15000);
+  }
+
+  function cyclePromo() {
+    dateSpan.innerText = promo[cycleCount].date;
+    titleSpan.innerText = promo[cycleCount].title;
+    if (cycleCount == promo.length - 1) {
+      cycleCount = 0;
+    } else {
+      cycleCount++;
+    }
+  }
+}
+
 /* DISPLAY BOOK CATEGORIES ON NAV CLICK */
 
 function displayBooksNav() {
@@ -84,11 +128,16 @@ function displayBooksNav() {
     setTimeout(() => {
       clearData(mainContent);
       for (let book in bookCategories) {
-        displayNav(bookCategories[book].title, bookCategories[book].img, "book");
+        displayNav(
+          bookCategories[book].title,
+          bookCategories[book].img,
+          "book"
+        );
       }
       bookNavToggle = true;
       document.querySelector("#nav-books").style.color = "black";
-      document.querySelector("#nav-books").style.textShadow = "0px 0px 1px white";
+      document.querySelector("#nav-books").style.textShadow =
+        "0px 0px 1px white";
       mainContent.style.opacity = 1;
     }, 800);
   } else {
@@ -132,7 +181,8 @@ function displaySocialNav() {
       makeSocialIcons();
       socialNavToggle = true;
       document.querySelector("#nav-social").style.color = "black";
-      document.querySelector("#nav-social").style.textShadow = "0px 0px 1px white";
+      document.querySelector("#nav-social").style.textShadow =
+        "0px 0px 1px white";
       mainContent.style.opacity = 1;
     }, 800);
   } else {
@@ -195,7 +245,7 @@ function displaySocialNav() {
 
 function displayNav(caption = "", imgURI, imgClass = "", divClass = "") {
   let container = document.createElement("div");
-  if(divClass != ''){
+  if (divClass != "") {
     container.classList = divClass;
   }
   let h2 = document.createElement("h2");
@@ -245,6 +295,6 @@ function clearData(element) {
   document.querySelector("#nav-contact").style.textShadow = "0px 0px 1px black";
 }
 
-function moveRight(){
+function moveRight() {
   window.scrollBy(270, 0);
 }
