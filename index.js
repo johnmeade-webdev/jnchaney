@@ -9,7 +9,7 @@ let featureBook = [
 
 let bookCategories = [
   {
-    title: "The Last Reaper (Series)",
+    title: "The Last Reaper",
     img: "./imgs/navDisplay/reaper_books_display_200x200.jpg",
     quote: ""
   },
