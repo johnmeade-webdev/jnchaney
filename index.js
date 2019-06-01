@@ -1,10 +1,21 @@
 let bookNavToggle = false;
 let artNavToggle = false;
 let socialNavToggle = false;
+let aboutNavToggle = false;
 
 let mainContent = document.querySelector("#main-content-container");
 
 let featureBook = [];
+
+let authorInfo = {
+  bio1:
+    "J. N. Chaney has a Master’s of Fine Arts in Creative Writing and fancies himself quite the Super Mario Bros. fan. When he isn’t writing or gaming, you can find him somewhere online, probably goofing off. He spends most of his downtime reading, catching up on netflix, and building a weapon to combat the oncoming invasion of fifth dimensional beings (probably shaped like spaghetti or something).",
+  bio2:
+    "After serving in the US Air Force, Chaney decided to pursue writing full time. Since then, he’s published two novels in his ongoing Variant Saga. It’s a cool series about genetic engineering, dystopian societies, and other neat stuff. Check it out if you’re into that sort of thing.",
+  bio3:
+    "Chaney migrates often, but was last seen in Avon Park, FL. Any sightings should be reported, as they are rare. Also, you should say hi to him. He likes that.",
+  img: "./imgs/author_pic.jpg"
+};
 
 let bookCategories = [
   {
@@ -123,6 +134,50 @@ if (promo.length != 0) {
       dateSpan.style.opacity = 1;
       titleSpan.style.opacity = 1;
     }, 600);
+  }
+}
+
+function displayAboutNav() {
+  if (aboutNavToggle == false) {
+    mainContent.style.opacity = 0;
+    setTimeout(() => {
+      clearData(mainContent);
+      let article = document.createElement("article");
+      article.setAttribute("id", "about-container");
+
+      let img = document.createElement("img");
+      img.setAttribute("src", authorInfo.img);
+      img.setAttribute("alt", "JN Chaney");
+
+      let p1 = document.createElement("p");
+      p1.innerText = authorInfo.bio1;
+      console.log(p1);
+
+      let p2 = document.createElement("p");
+      p2.innerText = authorInfo.bio2;
+
+      let p3 = document.createElement("p");
+      p3.innerText = authorInfo.bio3;
+
+      article.appendChild(img);
+      article.appendChild(p1);
+      article.appendChild(p2);
+      article.appendChild(p3);
+
+      mainContent.appendChild(article);
+
+      aboutNavToggle = true;
+      mainContent.style.overflowX = "hidden";
+      document.querySelector("#nav-about").style.color = "black";
+      document.querySelector("#nav-about").style.textShadow =
+        "0px 0px 1px white";
+      mainContent.style.opacity = 1;
+    }, 800);
+  } else {
+    mainContent.style.opacity = 0;
+    document.querySelector("#nav-about").style.color = "white";
+    setTimeout(() => clearData(mainContent), 900);
+    navNavToggle = false;
   }
 }
 
@@ -286,6 +341,11 @@ function clearData(element) {
   bookNavToggle = false;
   artNavToggle = false;
   socialNavToggle = false;
+  aboutNavToggle = false;
+
+  if (mainContent.style.overflowX != "scroll") {
+    mainContent.style.overflowX = "scroll";
+  }
 
   document.querySelector("#nav-books").style.color = "white";
   document.querySelector("#nav-books").style.textShadow = "0px 0px 1px black";

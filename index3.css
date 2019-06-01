@@ -13,17 +13,17 @@
 /* Track */
 ::-webkit-scrollbar-track {
   background: rgb(118, 116, 123);
-  background: rgba(118, 116, 123, .5);
+  background: rgba(118, 116, 123, 0.5);
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #66626b; 
+  background: #66626b;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #45345d; 
+  background: #45345d;
   background: rgba(139, 109, 181, 0.75);
 }
 
@@ -59,7 +59,7 @@ body {
 
 #promo-container {
   background-color: rgb(108, 138, 112);
-  background-color: rgb(108, 138, 112, .5);
+  background-color: rgb(108, 138, 112, 0.5);
   display: none;
   align-items: center;
   justify-content: center;
@@ -68,7 +68,7 @@ body {
 }
 
 #promo-container p {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 300;
   font-size: 1rem;
   letter-spacing: 2px;
@@ -83,7 +83,8 @@ body {
   letter-spacing: 1px;
 }
 
-#promo-pub-date, #promo-title {
+#promo-pub-date,
+#promo-title {
   opacity: 1;
   transition: opacity 500ms;
 }
@@ -243,6 +244,32 @@ div #renegade-reader-div h2 {
   cursor: pointer;
 }
 
+#about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  overflow-y: scroll;
+  padding: 0 10px;
+}
+
+#about-container img {
+  display: none;
+  width: 200px;
+  height: 200px;
+  margin: 1rem;
+  border-radius: 50%;
+}
+
+#about-container p {
+  text-align: justify;
+  align-self: flex-end;
+  font-family: "Lato";
+  font-weight: 300;
+  color: #000000;
+  text-shadow: 0px 0px 15px #ffffff, 1px 1px 15px white, -1px -1px 15px white;
+}
+
 /* FOOTER STYLES */
 
 footer {
@@ -267,6 +294,14 @@ footer {
     font-family: "Alegreya Sans SC", "Lato";
     font-weight: 500;
   }
+
+  #about-container img {
+  display: inherit;
+  width: 200px;
+  height: 200px;
+  margin: 1rem;
+  border-radius: 50%;
+}
 
   footer {
     color: #9193c7;
@@ -302,7 +337,7 @@ footer {
     -webkit-transition: color 600ms, text-shadow 600ms;
     -moz-transition: color 600ms, text-shadow 600ms;
     -o-transition: color 600ms, text-shadow 600ms;
-    font-family: 'Roboto';
+    font-family: "Roboto";
   }
 
   nav ul li:hover {
@@ -337,6 +372,15 @@ footer {
     font-size: 4rem;
   }
 
+#about-container p {
+  font-size: 1.5vw;
+}
+
+#about-container img {
+  width: 300px;
+  height: 300px;
+}
+
   footer {
     order: 3;
     height: 15%;
@@ -355,4 +399,8 @@ footer {
   main div img.book:hover {
     opacity: 1;
   }
+
+  #about-container p {
+  font-size: 2.25rem;
+}
 }
