@@ -2,6 +2,8 @@ let bookNavToggle = false;
 let artNavToggle = false;
 let socialNavToggle = false;
 let aboutNavToggle = false;
+let merchNavToggle = false;
+let contactNavToggle = false;
 
 let mainContent = document.querySelector("#main-content-container");
 
@@ -137,6 +139,92 @@ if (promo.length != 0) {
   }
 }
 
+function displayContactNav() {
+  if (contactNavToggle == false) {
+    mainContent.style.opacity = 0;
+    setTimeout(() => {
+      clearData(mainContent);
+
+      let container = document.createElement("div");
+      container.setAttribute("id", "contact-container");
+
+      let form = document.createElement("form");
+      form.setAttribute("action", "https://gmail.us20.list-manage.com/subscribe/post?u=ebf3ef32a9040cd251a3d7091&id=31c2622b5f");
+      form.setAttribute("method", "post");
+      form.setAttribute("id", "mc-embedded-subscribe-form");
+      form.setAttribute("name", "mc-embedded-subscribe-form");
+      form.setAttribute("class", "validate");
+      form.setAttribute("target", "_blank");
+      form.setAttribute("novalidate", "");
+
+      let p = document.createElement("p");
+      p.innerText = "What's your email?";
+
+      let input = document.createElement("input");
+      input.setAttribute("type", "email");
+      input.setAttribute("value", "");
+      input.setAttribute("name", "EMAIL");
+      input.setAttribute("class", "email");
+      input.setAttribute("id", "mce-EMAIL");
+      input.setAttribute("placeholder", "you@mail.com");
+      input.setAttribute("required", "true");
+
+      let submit = document.createElement("input");
+      submit.setAttribute("type", "submit");
+      submit.setAttribute("value", "Subscribe");
+      submit.setAttribute("name", "subscribe");
+      submit.setAttribute("id", "mc-embedded-subscribe");
+      submit.setAttribute("class", "button");
+
+      form.appendChild(p);
+      form.appendChild(input);
+      form.appendChild(submit);
+      container.appendChild(form);
+      mainContent.append(container);
+
+      contactNavToggle = true;
+      document.querySelector("#nav-contact").style.color = "black";
+      document.querySelector("#nav-contact").style.textShadow =
+        "0px 0px 1px white";
+      mainContent.style.opacity = 1;
+    }, 800);
+  } else {
+    mainContent.style.opacity = 0;
+    document.querySelector("#nav-contact").style.color = "white";
+    setTimeout(() => clearData(mainContent), 900);
+    contactNavToggle = false;
+  }
+}
+
+function displayMerchNav() {
+  if (merchNavToggle == false) {
+    mainContent.style.opacity = 0;
+    setTimeout(() => {
+      clearData(mainContent);
+
+      let container = document.createElement("div");
+      container.setAttribute("id", "merch-container");
+
+      let p1 = document.createElement("p");
+      p1.innerText = "... comming soon ...";
+
+      container.appendChild(p1);
+      mainContent.appendChild(container);
+
+      merchNavToggle = true;
+      document.querySelector("#nav-merch").style.color = "black";
+      document.querySelector("#nav-merch").style.textShadow =
+        "0px 0px 1px white";
+      mainContent.style.opacity = 1;
+    }, 800);
+  } else {
+    mainContent.style.opacity = 0;
+    document.querySelector("#nav-merch").style.color = "white";
+    setTimeout(() => clearData(mainContent), 900);
+    merchNavToggle = false;
+  }
+}
+
 function displayAboutNav() {
   if (aboutNavToggle == false) {
     mainContent.style.opacity = 0;
@@ -151,7 +239,6 @@ function displayAboutNav() {
 
       let p1 = document.createElement("p");
       p1.innerText = authorInfo.bio1;
-      console.log(p1);
 
       let p2 = document.createElement("p");
       p2.innerText = authorInfo.bio2;
@@ -342,6 +429,8 @@ function clearData(element) {
   artNavToggle = false;
   socialNavToggle = false;
   aboutNavToggle = false;
+  merchNavToggle = false;
+  contactNavToggle = false;
 
   if (mainContent.style.overflowX != "scroll") {
     mainContent.style.overflowX = "scroll";

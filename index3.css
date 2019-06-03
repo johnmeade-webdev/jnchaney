@@ -141,7 +141,7 @@ header h1 {
   width: 100%;
   font-family: "Audiowide", "Roboto", sans-serif;
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 5px;
 }
 
 nav ul {
@@ -202,11 +202,11 @@ main {
 }
 
 #main-content-container div h2 {
-  font-family: "Alegreya Sans SC";
-  font-weight: 300;
-  font-size: 1.5rem;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 #main-content-container div img {
@@ -248,7 +248,6 @@ div #renegade-reader-div h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   overflow-y: scroll;
   padding: 0 10px;
 }
@@ -265,15 +264,59 @@ div #renegade-reader-div h2 {
   text-align: justify;
   align-self: flex-end;
   font-family: "Lato";
-  font-weight: 300;
+  font-weight: 700;
   color: #000000;
-  text-shadow: 0px 0px 15px #ffffff, 1px 1px 15px white, -1px -1px 15px white;
+  text-shadow: 0px 0px 10px #ffffff, 1px 1px 15px white, -1px -1px 15px white;
+}
+
+div#merch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+#merch-container p {
+  text-shadow: 0px 0px 10px white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+div#contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+#contact-container p {
+  text-align: center;
+  text-shadow: 0px 0px 10px white;
+  margin: 5px;
+}
+
+#contact-container input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e8dfdf;
+  margin: 1rem;
+  text-align: center;
+  margin: 5px;
+
 }
 
 /* FOOTER STYLES */
 
 footer {
-  height: 30%;
+  height: 25%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -296,12 +339,12 @@ footer {
   }
 
   #about-container img {
-  display: inherit;
-  width: 200px;
-  height: 200px;
-  margin: 1rem;
-  border-radius: 50%;
-}
+    display: inherit;
+    width: 200px;
+    height: 200px;
+    margin: 1rem;
+    border-radius: 50%;
+  }
 
   footer {
     color: #9193c7;
@@ -372,14 +415,14 @@ footer {
     font-size: 4rem;
   }
 
-#about-container p {
-  font-size: 1.5vw;
-}
+  #about-container p {
+    font-size: 1.25vw;
+  }
 
-#about-container img {
-  width: 300px;
-  height: 300px;
-}
+  #about-container img {
+    width: 300px;
+    height: 300px;
+  }
 
   footer {
     order: 3;
@@ -401,6 +444,6 @@ footer {
   }
 
   #about-container p {
-  font-size: 2.25rem;
-}
+    font-size: 2.25rem;
+  }
 }
