@@ -108,35 +108,36 @@ let promo = [
 
 /* Promotion Banner Display */
 
-if (promo.length != 0) {
-  let cycleCount = 0;
-  let endIndex = promo.length - 1;
-  document.querySelector("#promo-container").style.display = "flex";
-  let dateSpan = document.querySelector("#promo-pub-date");
-  let titleSpan = document.querySelector("#promo-title");
-  if (promo.length == 1) {
-    dateSpan.innerText = promo[0].date;
-    titleSpan.innerText = promo[0].title;
-  } else {
-    cyclePromo();
-    setInterval(cyclePromo, 7000);
-  }
+let cycleCount = 0;
+let dateSpan = document.querySelector("#promo-pub-date");
+let titleSpan = document.querySelector("#promo-title");
 
-  function cyclePromo() {
-    dateSpan.style.opacity = 0;
-    titleSpan.style.opacity = 0;
-    setTimeout(() => {
-      dateSpan.innerText = promo[cycleCount].date;
-      titleSpan.innerText = promo[cycleCount].title;
-      if (cycleCount == promo.length - 1) {
-        cycleCount = 0;
-      } else {
-        cycleCount++;
-      }
-      dateSpan.style.opacity = 1;
-      titleSpan.style.opacity = 1;
-    }, 600);
-  }
+if (promo.length == 1) {
+  document.querySelector("#promo-container").style.display = "flex";
+  dateSpan.innerText = promo[0].date;
+  titleSpan.innerText = promo[0].title;
+} else {
+  document.querySelector("#promo-container").style.display = "flex";
+  dateSpan.innerText = promo[0].date;
+  titleSpan.innerText = promo[0].title;
+  cycleCount++;
+  setInterval(cyclePromo, 7000);
+}
+
+function cyclePromo() {
+  dateSpan.style.opacity = 0;
+  titleSpan.style.opacity = 0;
+  setTimeout(() => {
+    dateSpan.innerText = promo[cycleCount].date;
+    titleSpan.innerText = promo[cycleCount].title;
+    if (cycleCount == promo.length - 1) {
+      cycleCount = 0;
+    } else {
+      cycleCount++;
+    }
+    dateSpan.style.opacity = 1;
+    titleSpan.style.opacity = 1;
+  }, 600);
 }
 
 function displayContactNav() {
@@ -149,7 +150,10 @@ function displayContactNav() {
       container.setAttribute("id", "contact-container");
 
       let form = document.createElement("form");
-      form.setAttribute("action", "https://gmail.us20.list-manage.com/subscribe/post?u=ebf3ef32a9040cd251a3d7091&id=31c2622b5f");
+      form.setAttribute(
+        "action",
+        "https://gmail.us20.list-manage.com/subscribe/post?u=ebf3ef32a9040cd251a3d7091&id=31c2622b5f"
+      );
       form.setAttribute("method", "post");
       form.setAttribute("id", "mc-embedded-subscribe-form");
       form.setAttribute("name", "mc-embedded-subscribe-form");
