@@ -3,6 +3,11 @@
 * {
   box-sizing: border-box;
   scrollbar-width: thin;
+  scrollbar-color: rgba(118, 116, 123, 0.5);
+}
+
+html {
+  line-height: 1;
 }
 
 ::-webkit-scrollbar {
@@ -166,7 +171,7 @@ nav ul li:hover {
 /* MAIN STYLES */
 
 main {
-  min-height: 50%;
+  height: 55%;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -206,7 +211,7 @@ main {
   font-weight: 700;
   font-size: 1.25rem;
   text-align: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 #main-content-container div img {
@@ -286,7 +291,6 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
 
 div#contact-container {
@@ -310,7 +314,6 @@ div#contact-container {
   margin: 1rem;
   text-align: center;
   margin: 5px;
-
 }
 
 /* FOOTER STYLES */
@@ -329,6 +332,32 @@ footer {
 
 /* MEDIA QUERIES */
 
+@media (max-width: 300px) {
+  #promo-container p {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-height: 500px) {
+  #promo-container p {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (min-width: 550px) {
   nav ul {
     grid-template-columns: repeat(6, auto);
@@ -339,7 +368,7 @@ footer {
   }
 
   #about-container img {
-    display: inherit;
+    display: block;
     width: 200px;
     height: 200px;
     margin: 1rem;
@@ -356,7 +385,7 @@ footer {
     font-size: 0.75rem;
   }
 
-  img.art {
+  img.art, img.book {
     max-height: 100px;
   }
 }
@@ -444,6 +473,6 @@ footer {
   }
 
   #about-container p {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 }
